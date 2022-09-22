@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+// variables
+$lineaGradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+$red: hsl(0, 100%, 66%);
+$white: hsl(0, 0%, 100%);
+$lightGrayishViolet: hsl(270, 3%, 87%);
+$darkGrayishViolet: hsl(279, 6%, 55%);
+$veryDarkViolet: hsl(278, 68%, 11%);
+
+*,*::after,*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+body::after {
+  content: '';
+  background-image: url('../public/images/bg-main-desktop.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 30vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 45vw 55vw;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+}
+
+.sidebar {
+  grid-column: 1/2;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2.5rem;
+}
+
+.sidebar p {
+  color: $white;
+}
+
+.card-front {
+  align-self: start;
+  background-image: url('../public/images//bg-card-front.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  max-width: 400px;
+  height: 220px;
+  border-radius: 0.45rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.circle-big {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 45px;;
+  height: 45px;
+  top: 1rem;
+  left: 1rem;
+}
+
+.circle-small {
+  position: absolute;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  width: 25px;;
+  height: 25px;
+  top: 1.75rem;
+  left: 5rem;
+}
+
+.card-number {
+  letter-spacing: 5.55px;
+  font-size: 1.25rem;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+.card-back {
+  background-image: url('../public/images//bg-card-back.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  max-width: 400px;
+  height: 220px;
+  border-radius: 0.45rem;
+  padding: 1rem;
+}
+
+.cvc {
+  padding-top: 4.85rem;
+  padding-right: 2rem;
+  float: right;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+}
+
+.form {
+  grid-column: 2/3;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  gap: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  position: relative;
+}
+
+.date-labels {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.date-inputs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#date, #year {
+  width: 25%;
+}
+
+#cvc {
+  width: 50%;
+}
+
+input {
+  border-radius: 0.45rem;
+  border: 1px solid $darkGrayishViolet;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-family: 'Space Grotesk', sans-serif;
+  transition: all 0.2s linear;
+  margin-bottom: 0.5rem;
+}
+
+input::placeholder {
+  color: $darkGrayishViolet;
+}
+
+input:hover {
+  border-color:hsl(249, 99%, 64%);
+}
+
+.btn {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: $veryDarkViolet;
+  color: $white;
+  padding: 0.75rem;
+  border-radius: 0.45rem;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+
+.error {
+  border: 1px solid $red;
+  position: relative;
+}
+
+.error-msg {
+  max-width: 23ch;
+}
+
+#cvc + .error-msg {
+  right: 0;
+}
+
+.success-msg {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.success-msg h2 {
+  letter-spacing: 2px;
+  margin-top: 1rem;
+}
+
+.success-msg p {
+  color: $darkGrayishViolet;
+}
+
+.success-msg button {
+  width: 100%;
+}
+
+.success-msg img {
+  width: 75px;
+}
+
+@media (max-width: 875px) {
+  .card-number, .cvc, .btn {
+    font-size: 1rem;
+  }
+
+  .cvc {
+    padding-right: 1rem;
+    padding-top: 5rem;
+  }
+
+  .form {
+    width: 275px;
+  }
+
+}
+
+
+@media (max-width: 730px) {
+  body::after {
+    width: 100vw;
+    height: 40vh;
+  }
+
+  .main {
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    gap: 0;
+    align-items: center;
+    height: inherit;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    height: 50vh;
+  }
+
+  .card-front {
+    position: absolute;
+    top: 154px;
+    left: 35px;
+    width: 370px;
+  }
+
+  .card-back {
+    margin-left: 4rem;
+    width: 370px;
+  }
+
+  .form {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-front, .card-back {
+    width: 100%;
+  }
+  .card-back {
+    margin-left: 0;
+  }
+  .card-front {
+    left: 0;
+  }
+  .form {
+    width: 350px;
+  }
+}
