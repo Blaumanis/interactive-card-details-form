@@ -1,11 +1,22 @@
-import React from 'react';
-import Main from './Main'
+import React, {useState} from 'react'
+import GlobalState from './context/GlobalState';
+import Sidebar from './Sidebar'
+import Form from './Form';
+import SuccessMsg from './SuccessMsg'
+
 
 function App() {
+  const [isSuccess, setIsSuccess] = useState(false);
+
+
   return (
-    <div className="App">
-      <Main />
-    </div>
+    <GlobalState>
+      <main className="main">
+        <Sidebar />
+        {isSuccess ? <SuccessMsg setIsSuccess={setIsSuccess}/> : <Form setIsSuccess={setIsSuccess}/> }
+      </main>
+    </GlobalState>
+
   );
 }
 

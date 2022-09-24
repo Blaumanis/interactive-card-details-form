@@ -133,7 +133,7 @@ body::after {
   display: flex;
   flex-direction: column;
   width: 400px;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .input-group {
@@ -153,7 +153,11 @@ body::after {
   gap: 0.5rem;
 }
 
-#date, #year {
+.date-inputs input {
+  margin-bottom: 0.5rem;
+}
+
+#month, #year {
   width: 25%;
 }
 
@@ -168,7 +172,10 @@ input {
   font-size: 1rem;
   font-family: 'Space Grotesk', sans-serif;
   transition: all 0.2s linear;
-  margin-bottom: 0.5rem;
+}
+
+label {
+  margin-top: 0.5rem;
 }
 
 input::placeholder {
@@ -189,7 +196,7 @@ input:hover {
   font-size: 1.25rem;
   cursor: pointer;
   transition: all 0.2s linear;
-  margin-top: 1rem;
+  margin-top: .5rem;
 }
 
 .btn:hover {
@@ -198,17 +205,53 @@ input:hover {
 
 
 .error {
-  border: 1px solid $red;
+  border: 2px solid $red;
   position: relative;
+  outline: none;
+}
+
+.error:focus {
+  border: 2px solid $red;
 }
 
 .error-msg {
   max-width: 23ch;
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.error-btn {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  background-color: $red;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 #cvc + .error-msg {
   right: 0;
 }
+
 
 .success-msg {
     padding: 1rem;
@@ -216,6 +259,7 @@ input:hover {
     flex-direction: column;
     gap: 1rem;
     align-items: center;
+    margin-top: 3rem;
 }
 
 .success-msg h2 {
@@ -246,9 +290,8 @@ input:hover {
   }
 
   .form {
-    width: 275px;
+    width: 300px;
   }
-
 }
 
 
@@ -262,6 +305,7 @@ input:hover {
     display: flex;
     padding: 1rem;
     flex-direction: column;
+    height: inherit;
   }
 
   .sidebar {
@@ -278,15 +322,24 @@ input:hover {
     top: 154px;
     left: 35px;
     width: 370px;
+    height: 200px;
   }
 
   .card-back {
     margin-left: 4rem;
     width: 370px;
+    height: 200px;
+  }
+
+  .cvc {
+    padding-right: 1.5rem;
+    padding-top: 4.5rem;
   }
 
   .form {
+    width: 400px;
     gap: 1rem;
+    margin-top: 5rem;
   }
 }
 
@@ -301,6 +354,6 @@ input:hover {
     left: 0;
   }
   .form {
-    width: 350px;
+    width: 345px;
   }
 }
