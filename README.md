@@ -28,4 +28,7 @@ This is a solution to the [Interactive card details form challenge on Frontend M
 - Form validation
 - Regular expressions
 - Conditional rendering
-- useState, useRef, use
+
+### Things learned
+
+- Use of react-spring library
